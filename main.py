@@ -4,11 +4,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_compress import Compress
 from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_socketio import SocketIO
 
 
 app = Flask(__name__)
-socket = SocketIO(app)
 Compress(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///users.db")
